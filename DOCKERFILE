@@ -5,7 +5,7 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy all source files (including train.py)
+# Copy all Python scripts
 COPY train.py predict.py ./
 
 # Train the model inside the container
