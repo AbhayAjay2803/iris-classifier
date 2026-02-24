@@ -5,6 +5,10 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY train.py predict.py model.joblib ./
+# Copy all source files (including train.py)
+COPY train.py predict.py ./
+
+# Train the model inside the container
+RUN python train.py
 
 ENTRYPOINT ["python", "predict.py"]
